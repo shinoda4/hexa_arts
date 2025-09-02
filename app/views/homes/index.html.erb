@@ -1,0 +1,14 @@
+<h1>首页</h1>
+
+<hr>
+
+<%= render "shared/user_navbar" do %>
+<% end %>
+
+
+<%= render "shared/major_navbar" do %>
+  <% @majors.each do |major| %>
+    <%= link_to major.major_name, front_teachers_path(major_id: major.id) %>
+  <% end %>
+<% end %>
+

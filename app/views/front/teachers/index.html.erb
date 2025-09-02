@@ -1,0 +1,39 @@
+
+<h1><%= @major.major_name %> 的教师</h1>
+
+<hr>
+
+<%= render "shared/admin_navbar" %>
+
+<div class="teacher-grid">
+  <% @teachers.each do |teacher| %>
+    <div class="teacher-card">
+      <% if teacher.photo.attached? %>
+        <%= image_tag teacher.photo.variant(resize_to_limit: [200, 200]), alt: teacher.name %>
+      <% end %>
+      <h2><%= teacher.name %></h2>
+      <p><strong>职务:</strong> <%= teacher.position %></p>
+      <p><strong>学校:</strong> <%= teacher.school.school_name if teacher.school %></p>
+      <p><strong>学历:</strong> <%= teacher.education.education_name if teacher.education %></p>
+      <%= link_to "查看详情", front_teacher_path(teacher) %>
+    </div>
+  <% end %>
+</div>
+
+<style>
+    .teacher-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    .teacher-card {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+    }
+    .teacher-card img {
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+</style>

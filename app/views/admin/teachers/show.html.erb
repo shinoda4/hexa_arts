@@ -1,0 +1,24 @@
+<h1>教师详情</h1>
+
+<%= render "shared/admin_navbar" %>
+
+<% if @teacher.photo.attached? %>
+  <%= image_tag @teacher.photo.variant(resize_to_fill: [150, 200]) %>
+<% end %>
+
+<p><strong>姓名:</strong> <%= @teacher.name %></p>
+<p><strong>性别:</strong> <%= @teacher.gender %></p>
+<p><strong>职务:</strong> <%= @teacher.position %></p>
+<p><strong>获奖证书:</strong> <%= @teacher.award_certificates %></p>
+<p><strong>荣誉:</strong> <%= @teacher.honors %></p>
+<p><strong>教师证号:</strong> <%= @teacher.teacher_license %></p>
+<p><strong>个人简介:</strong> <%= @teacher.bio %></p>
+<p><strong>工作经验:</strong> <%= @teacher.experience %></p>
+<p><strong>电话:</strong> <%= @teacher.phone %></p>
+<p><strong>微信:</strong> <%= @teacher.wechat %></p>
+<p><strong>学校:</strong> <%= @teacher.school.school_name if @teacher.school %></p>
+<p><strong>专业:</strong> <%= @teacher.major.major_name if @teacher.major %></p>
+<p><strong>学历:</strong> <%= @teacher.education.education_name if @teacher.education %></p>
+
+<%= link_to "编辑", edit_admin_teacher_path(@teacher) %> |
+<%= link_to "返回列表", admin_teachers_path %>

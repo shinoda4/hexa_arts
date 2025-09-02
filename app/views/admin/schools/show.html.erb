@@ -1,0 +1,16 @@
+<!-- app/views/schools/show.html.erb -->
+
+<h1>学校详情</h1>
+
+<p>
+  <strong>ID:</strong>
+  <%= @school.id %>
+</p>
+
+<p>
+  <strong>学校名称:</strong>
+  <%= @school.school_name %>
+</p>
+
+<%= link_to "编辑", edit_admin_school_path(@school) %> |
+<%= link_to "返回列表", admin_schools_path %>

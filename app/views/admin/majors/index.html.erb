@@ -1,0 +1,36 @@
+<!-- app/views/majors/index.html.erb -->
+
+<h1>专业列表</h1>
+
+<%= render "shared/admin_navbar" %>
+
+<% if notice %>
+  <p style="color: green;"><%= notice %></p>
+<% end %>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>专业名称</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @majors.each do |major| %>
+    <tr>
+      <td><%= major.id %></td>
+      <td><%= major.major_name %></td>
+      <td style="display: flex">
+        <%= link_to "查看", admin_major_path(major) %> |
+        <%= link_to "编辑", edit_admin_major_path(major) %> |
+        <%= button_to "删除", admin_major_path(major), style: "cursor: pointer", method: :delete, data: { turbo_confirm: "确定删除吗？" } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "添加新专业", new_admin_major_path %>

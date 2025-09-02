@@ -1,0 +1,22 @@
+<!-- app/views/educations/_form.html.erb -->
+
+<% if education.errors.any? %>
+  <div style="color: red;">
+    <ul>
+      <% education.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: [:admin, @education], local: true do |f| %>
+  <div>
+    <%= f.label :education_name, "学历名称" %><br>
+    <%= f.text_field :education_name %>
+  </div>
+
+  <div>
+    <%= f.submit education.new_record? ? "添加学历" : "更新学历" %>
+  </div>
+<% end %>

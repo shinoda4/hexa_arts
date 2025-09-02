@@ -1,0 +1,85 @@
+<% if @teacher.errors.any? %>
+  <div style="color: red;">
+    <ul>
+      <% @teacher.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: [:admin, @teacher], local: true do |f| %>
+  <div>
+    <%= f.label :photo, "照片" %><br>
+    <%= f.file_field :photo, accept: "image/*" %>
+  </div>
+
+  <div>
+    <%= f.label :name, "姓名" %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :gender, "性别" %><br>
+    <%= f.select :gender, [%w[男 男], %w[女 女]] %>
+  </div>
+
+  <div>
+    <%= f.label :position, "职务" %><br>
+    <%= f.text_field :position %>
+  </div>
+
+  <div>
+    <%= f.label :award_certificates, "获奖证书" %><br>
+    <%= f.text_area :award_certificates %>
+  </div>
+
+  <div>
+    <%= f.label :honors, "荣誉" %><br>
+    <%= f.text_area :honors %>
+  </div>
+
+  <div>
+    <%= f.label :teacher_license, "教师证号" %><br>
+    <%= f.text_field :teacher_license %>
+  </div>
+
+  <div>
+    <%= f.label :bio, "个人简介" %><br>
+    <%= f.text_area :bio %>
+  </div>
+
+  <div>
+    <%= f.label :experience, "工作经验" %><br>
+    <%= f.text_area :experience %>
+  </div>
+
+  <div>
+    <%= f.label :phone, "电话" %><br>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div>
+    <%= f.label :wechat, "微信" %><br>
+    <%= f.text_field :wechat %>
+  </div>
+
+  <div>
+    <%= f.label :school_id, "学校" %><br>
+    <%= f.collection_select :school_id, School.all, :id, :school_name, prompt: "请选择学校" %>
+  </div>
+
+  <div>
+    <%= f.label :major_id, "专业" %><br>
+    <%= f.collection_select :major_id, Major.all, :id, :major_name, prompt: "请选择专业" %>
+  </div>
+
+  <div>
+    <%= f.label :education_id, "学历" %><br>
+    <%= f.collection_select :education_id, Education.all, :id, :education_name, prompt: "请选择学历" %>
+  </div>
+
+  <div>
+    <%= f.submit @teacher.new_record? ? "添加教师" : "更新教师" %>
+  </div>
+<% end %>

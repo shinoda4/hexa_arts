@@ -1,0 +1,32 @@
+<h1>学历列表</h1>
+<%= render "shared/admin_navbar" %>
+<% if notice %>
+  <p style="color: green;"><%= notice %></p>
+<% end %>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>学历名称</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @educations.each do |education| %>
+    <tr>
+      <td><%= education.id %></td>
+      <td><%= education.education_name %></td>
+      <td style="display: flex">
+        <%= link_to "查看", admin_education_path(education) %> |
+        <%= link_to "编辑", edit_admin_education_path(education) %> |
+        <%= button_to "删除", admin_education_path(education), style: "cursor: pointer", method: :delete, data: { turbo_confirm: "确定删除吗？" } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "添加新学历", new_admin_education_path %>

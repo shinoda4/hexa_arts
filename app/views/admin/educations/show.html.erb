@@ -1,0 +1,16 @@
+<h1>学历详情</h1>
+<% if notice %>
+  <p style="color: green;"><%= notice %></p>
+<% end %>
+<p>
+  <strong>ID:</strong>
+  <%= @education.id %>
+</p>
+
+<p>
+  <strong>学历名称:</strong>
+  <%= @education.education_name %>
+</p>
+
+<%= link_to "编辑", admin_education_path(@education) %> |
+<%= link_to "返回列表", admin_educations_path %>

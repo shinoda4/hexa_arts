@@ -1,0 +1,23 @@
+<h1>管理页面</h1>
+
+<p>
+  当前登陆用户：<%= current_user.username %><br>
+  当前登陆用户：<%= current_user.email %>
+</p>
+
+<%= render "shared/admin_navbar" do %>
+  <%= button_to "登出", destroy_user_session_path, method: :delete %>
+<% end %>
+
+<h3>基础信息</h3>
+
+<nav>
+  <%= link_to "学校列表", admin_schools_path %>
+  <%= link_to "专业列表", admin_majors_path %>
+  <%= link_to "学历列表", admin_educations_path %>
+</nav>
+
+<h3>人员信息</h3>
+<nav>
+  <%= link_to "教师列表", admin_teachers_path %>
+</nav>

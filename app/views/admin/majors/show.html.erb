@@ -1,0 +1,16 @@
+<!-- app/views/majors/show.html.erb -->
+
+<h1>专业详情</h1>
+
+<p>
+  <strong>ID:</strong>
+  <%= @major.id %>
+</p>
+
+<p>
+  <strong>专业名称:</strong>
+  <%= @major.major_name %>
+</p>
+
+<%= link_to "编辑", edit_admin_major_path(@major) %> |
+<%= link_to "返回列表", admin_majors_path %>
