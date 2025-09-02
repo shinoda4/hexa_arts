@@ -42,6 +42,6 @@ class Admin::SchoolsController < ApplicationController
   private
 
   def school_params
-    params.require(:school).permit(:school_name)
+    params.require(:school).permit(:school_name, :address)
   end
 end

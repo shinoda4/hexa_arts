@@ -14,6 +14,7 @@
   <tr>
     <th>ID</th>
     <th>学校名称</th>
+    <th>地址</th>
     <th>操作</th>
   </tr>
   </thead>
@@ -22,10 +23,11 @@
     <tr>
       <td><%= school.id %></td>
       <td><%= school.school_name %></td>
+      <td><%= school.address %></td>
       <td style="display: flex">
         <%= link_to "查看", admin_school_path(school) %> |
         <%= link_to "编辑", edit_admin_school_path(school) %> |
-        <%= button_to "删除", admin_school_path(school),style: "cursor: pointer", method: :delete, data: { turbo_confirm: "确定删除吗？" } %>
+        <%= button_to "删除", admin_school_path(school), style: "cursor: pointer", method: :delete, data: { turbo_confirm: "确定删除吗？" } %>
       </td>
     </tr>
   <% end %>

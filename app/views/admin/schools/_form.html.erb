@@ -16,8 +16,12 @@
     <%= f.label :school_name, "学校名称" %><br>
     <%= f.text_field :school_name %>
   </div>
+  <div>
+    <%= f.label :address, "地址" %><br>
+    <%= f.text_field :address %>
+  </div>
 
   <div>
-    <%= f.submit %>
+    <%= f.submit @school.new_record? ? "创建学校" : "更新学校" %>
   </div>
 <% end %>
