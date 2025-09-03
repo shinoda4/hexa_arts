@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :require_superuser
-  before_action :set_user, only: [ :edit, :update, :destroy ]
+  before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -42,7 +42,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :is_superuser)
+    params.require(:user).permit(:username, :phone, :email, :password, :password_confirmation, :is_superuser)
   end
 
   def require_superuser
