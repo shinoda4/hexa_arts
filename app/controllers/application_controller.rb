@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:login])
     # 注册时允许 username
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
     # 修改资料时允许 username

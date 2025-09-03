@@ -1,0 +1,32 @@
+<h1>新增用户</h1>
+
+<%= form_with model: [:admin, @user], local: true do |f| %>
+  <div>
+    <%= f.label :username, "用户名" %><br>
+    <%= f.text_field :username %>
+  </div>
+
+  <div>
+    <%= f.label :email, "邮箱" %><br>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password, "密码" %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation, "确认密码" %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= f.label :is_superuser, "超级管理员" %>
+    <%= f.check_box :is_superuser %>
+  </div>
+
+  <div>
+    <%= f.submit "创建用户" %>
+  </div>
+<% end %>
