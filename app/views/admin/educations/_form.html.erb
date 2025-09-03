@@ -1,13 +1,15 @@
 <!-- app/views/educations/_form.html.erb -->
 
+<%= render 'shared/admin_navbar' %>
+
 <% if education.errors.any? %>
-  <div style="color: red;">
-    <ul>
-      <% education.errors.full_messages.each do |msg| %>
+  <ul>
+    <% education.errors.messages.each do |_fields, messages| %>
+      <% messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-    </ul>
-  </div>
+    <% end %>
+  </ul>
 <% end %>
 
 <%= form_with model: [:admin, @education], local: true do |f| %>
