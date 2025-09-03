@@ -1,5 +1,4 @@
 class Front::TeachersController < ApplicationController
-
   def index
     if params[:major_id].present?
       @major = Major.find(params[:major_id])
