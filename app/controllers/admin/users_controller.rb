@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :require_superuser
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [ :edit, :update, :destroy ]
 
   def index
     @users = User.all
