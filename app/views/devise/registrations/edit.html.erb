@@ -7,7 +7,10 @@
     <%= f.label :username %><br/>
     <%= f.text_field :username, autocomplete: "username" %>
   </div>
-
+  <div class="field">
+    <%= f.label :phone %><br/>
+    <%= f.text_field :phone, autocomplete: "phone" %>
+  </div>
   <div class="field">
     <%= f.label :email %><br/>
     <%= f.email_field :email, autocomplete: "email" %>
@@ -35,7 +38,10 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br/>
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
-
+  <div class="field">
+    <%= f.label :is_superuser %><br/>
+    <%= f.checkbox :is_superuser, autocomplete: "is_superuser" %>
+  </div>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

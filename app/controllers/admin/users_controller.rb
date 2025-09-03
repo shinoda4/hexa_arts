@@ -42,7 +42,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :is_superuser)
+    params.require(:user).permit(:username, :phone, :email, :password, :password_confirmation, :is_superuser)
   end
 
   def require_superuser
